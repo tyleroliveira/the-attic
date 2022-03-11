@@ -88,6 +88,9 @@ export default function SignUp() {
             {loading ? "Loading..." : "Submit"}
           </button>
         </div>
+          <button type="submit">
+            already a user?
+          </button>
       </form>
     </div>
   );
