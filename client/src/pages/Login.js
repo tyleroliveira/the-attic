@@ -53,7 +53,7 @@ export default function Login() {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>LOGIN..</h1>
       <hr />
       <form onSubmit={handleSubmit}>
         <div style={styles.formControl}>
@@ -89,6 +89,9 @@ export default function Login() {
             {loading ? "Loading..." : "Submit"}
           </button>
         </div>
+        <button>
+          not a user?➡️
+        </button>
       </form>
     </div>
   );
