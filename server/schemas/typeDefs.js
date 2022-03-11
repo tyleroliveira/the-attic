@@ -10,11 +10,13 @@ const typeDefs = gql `
   }
 
   type Box {
+    _id: ID!
     title: String!
     items: [Item]
   }
 
   type Item {
+    _id: ID!
     title: String!
     itemCode: String
     itemLink: String
