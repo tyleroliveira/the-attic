@@ -18,3 +18,9 @@ export const LOGIN = gql `
   }
 `;
 
+// addBox
+// addItem
+// updateBox
+// updateItem
+// removeBox
+// removeItem 
