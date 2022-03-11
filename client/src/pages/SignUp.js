@@ -19,7 +19,6 @@ const styles = {
 };
 
 const initialFormState = {
-  username: "",
   email: "",
   password: "",
 };
@@ -55,19 +54,6 @@ export default function SignUp() {
       <hr />
       <form onSubmit={handleSubmit}>
         <div style={styles.formControl}>
-          <label htmlFor="username" style={styles.label}>
-            Username
-          </label>
-          <input
-            autoFocus
-            disabled={loading}
-            id="username"
-            type="text"
-            placeholder="Enter username"
-            name="username"
-            value={formState.username.value}
-            onChange={handleInputChange}
-          />
         </div>
         <div style={styles.formControl}>
           <label htmlFor="email" style={styles.label}>
