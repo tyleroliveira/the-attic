@@ -14,18 +14,14 @@ const {
 
 const resolvers = {
   Query: {
-    me: async (parent, args, ctx) => {
-      // if ctx.user is undefined, then no token or an invalid token was
-      // provided by the client.
-      if (!ctx.user) {
-        throw new AuthenticationError("Must be logged in.");
+    me: async (parent, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate('boxes');
       }
-      return User.findOne({
-        email: ctx.user.email
-      });
+      throw new AuthenticationError('You need to be logged in!');
     },
     box: async (parent, { _id }) => {
-      return await Box.findById(_id).populate('Box');
+      return await Box.findById(_id).populate('boxes');
     },
   },
   Mutation: {
