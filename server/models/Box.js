@@ -11,7 +11,7 @@ const boxSchema = new Schema({
         maxLength: 280,
     },
     items: [{
-        title: {
+        itemTitle: {
             type: String,
             required: true,
             minLength: 1
