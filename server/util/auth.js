@@ -36,6 +36,7 @@ const authMiddleware = async ({ req }) => {
     req.user = data;
   } catch (err) {
     console.log(`Invalid token received. Token: "${token}"`);
+    console.log(err);
   }
 
   // return the request object so it can be passed to the resolver as `context`
