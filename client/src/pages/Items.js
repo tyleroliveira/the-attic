@@ -1,34 +1,37 @@
-import { useQuery } from "@apollo/client";
-import { useAuth } from "../util/auth";
-import { ME } from "../util/queries";
+import React from 'react';
 
-const renderDate = (date) =>
-  `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+// import { useParams } from 'react-router-dom';
+// import { useQuery } from '@apollo/client';
 
-export default function ProtectedPageExample() {
-  const { user } = useAuth();
-  const { data, loading } = useQuery(ME, {
-    // skip cache for demonstration
-    fetchPolicy: "network-only",
-  });
+import ItemList from '../components/ItemList';
+import NewItemForm from '../components/NewItemForm';
+
+// import { QUERY_ITEMS } from '../utils/queries';
+
+const Items = () => {
+    // const {loading, data} = useQuery(QUERY_ITEMS);
+    // const items = data?.items || [];
+
+
   return (
-    <div>
-      <h1>Welcome {user.username}!</h1>
-      <p>
-        Last Login:{" "}
-        {loading
-          ? "Loading..."
-          : data && renderDate(new Date(data.me.lastLogin))}
-      </p>
-      <hr />
-      <p>Your id is {user._id}</p>
-      <p>Your email is {user.email}</p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo cumque
-        explicabo ipsum, facilis repellendus omnis amet in accusantium quisquam
-        nam qui consectetur sunt distinctio nemo molestiae ratione. Iure,
-        aliquam debitis.
-      </p>
-    </div>
-  );
-}
+    <main>
+        <h3
+        className="p-5 display-inline-block"
+      >
+        JavaScript
+      </h3>
+        <button
+        onClick={
+            <NewItemForm />
+        }
+        >
+            + NEW ITEM
+        </button>
+      <div className="col-12 col-md-8 mb-3">
+          <ItemList
+          />
+      </div>
+  </main>
+  )}
+
+export default Items;
