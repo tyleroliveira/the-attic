@@ -1,13 +1,10 @@
-const { Schema, model } = require("mongoose");
+const {
+  Schema,
+  model
+} = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-  },
   email: {
     type: String,
     required: true,
@@ -19,10 +16,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  lastLogin: {
-    type: Date,
-    default: Date.now,
-  },
+  boxes: [{
+    type: Schema.Types.ObjectId,
+    ref: "Box"
+  }],
 });
 
 userSchema.pre("save", async function (next) {
@@ -30,7 +27,6 @@ userSchema.pre("save", async function (next) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
-
   next();
 });
 
