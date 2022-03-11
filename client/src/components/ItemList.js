@@ -12,7 +12,7 @@ const ItemList = ({ items = [] }) => {
           items.map((item) => (
             <div key={item._id} className="col-12 mb-3 pb-3">
               <div className="p-3 bg-dark text-light">
-                <p className="card-body">{item}</p>
+                <p className="card-body"> items</p>
               </div>
             </div>
           ))}
