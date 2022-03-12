@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useAuth } from "../util/auth";
 
 // This signup form is intentionally minimalist to reduce effort required to
@@ -45,8 +45,8 @@ export default function SignUp() {
   };
 
   if (isLoggedIn) {
-    // navigate to the home page
-    return <Navigate to="/" replace />
+    // navigate to the Boxes page
+    return <Navigate to="/Boxes" replace />
   }
   return (
     <div>
@@ -85,11 +85,13 @@ export default function SignUp() {
         </div>
         <div style={styles.formControl}>
           <button disabled={loading} type="submit">
-            {loading ? "Loading..." : "Submit"}
+            {loading ? "Loading..." : "SIGNUP"}
           </button>
         </div>
           <button type="submit">
+          <Link className="btn btn-dark" to="/login">
             already a user?
+          </Link>
           </button>
       </form>
     </div>
