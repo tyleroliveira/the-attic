@@ -20,7 +20,7 @@ export default function Landing() {
         LEAVE YOUR CODE HERE, 
         WE PROMISE ITS SAFE WITH US...
       </p>
-      <button>˝
+      <button>
         LOGIN
       </button>
       <button>
