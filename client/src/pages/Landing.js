@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import { useEffect, useState } from "react";
 // import { Navigate } from "react-router-dom";
 // import { useAuth } from "../util/auth";
@@ -21,10 +22,14 @@ export default function Landing() {
         WE PROMISE ITS SAFE WITH US...
       </p>
       <button>
+      <Link className="btn btn-dark" to="/login">
         LOGIN
+      </Link>
       </button>
       <button>
+      <Link className="btn btn-dark" to="/signup">
         SIGNUP
+      </Link>
       </button>
     </div>
   );
