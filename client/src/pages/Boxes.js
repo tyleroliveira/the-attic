@@ -1,29 +1,34 @@
 import React from "react";
+import { useQuery } from '@apollo/client';
+import NewBoxForm from "../components/NewBoxForm";
 import { useAuth } from "../util/auth";
+
+import BoxList from "../components/BoxList";
+
+import { GET_BOXES } from '../util/queries';
 
 export default function Home() {
   const { logout } = useAuth();
+  const {boxes} = useQuery(GET_BOXES)
   return (
     <>
       <div>
         <button className="btn btn-dark">INSTALL</button>
         <button className="btn btn-dark" onClick={logout}>
-          Logout
+          LOGOUT
         </button>
         <h1>YOUR ATTIC</h1>
         <hr />
-        <button className="btn btn-dark" type="submit">
-          + NEW BOX
-        </button>
-        <button>JavaScript</button>
-      </div>
-      <div>
-        <button>terminal commands</button>
-        <button>Docs Links</button>
-      </div>
-      <div>
-        <button>GIt commands</button>
-        <button>graph sql syntax</button>
+        <h2>  
+          +NEW BOX
+        </h2>
+        <div>
+          <NewBoxForm/>
+        </div>
+        <BoxList
+              boxes={boxes}
+
+            />
       </div>
     </>
   );
