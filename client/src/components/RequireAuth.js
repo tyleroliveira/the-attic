@@ -10,5 +10,5 @@ export default function RequireAuth({ children }) {
   // Redirect to /login page but save location user was trying to go to so that
   // user can be returned to this place after logging in for a nicer user
   // experience.
-  return <Navigate to="/login" state={{ from: location }} replace />;
+  return <Navigate to="/" state={{ from: location }} replace />;
 }
