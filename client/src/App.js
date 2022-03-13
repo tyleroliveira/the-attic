@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp";
 import Landing from "./pages/Landing";
 import { client } from "./util/apolloClient";
 import { AuthProvider } from "./util/auth";
+import RequireAuth from "./components/RequireAuth";
 
 function App() {
   return (
@@ -16,20 +17,10 @@ function App() {
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/boxes" element={<Boxes />} />
+            <Route path="/boxes" element={<RequireAuth><Boxes /></RequireAuth>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/items" element={<Items />} />
-            {/* Use <RequiredAuth> for pages that should only be accessible to a
-            user that has logged in.*/}
-            {/* <Route
-              path="/protected"
-              element={
-                <RequireAuth>
-                  <Items />
-                </RequireAuth>
-              }
-            /> */}
           </Routes>
         </AuthProvider>
       </Router>
