@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, Navigate } from "react-router-dom";
+import { useLocation, Navigate, Link } from "react-router-dom";
 import { useAuth } from "../util/auth";
 
 // This signup form is intentionally minimalist to reduce effort required to
@@ -47,8 +47,7 @@ export default function Login() {
 
   if (isLoggedIn) {
     // navigate to page user was redirected from or the home page.
-    const from = location.state?.from?.pathname || "/";
-    return <Navigate to={from} replace />
+    return <Navigate to="/boxes"/>
   }
 
   return (
@@ -90,7 +89,9 @@ export default function Login() {
           </button>
         </div>
         <button>
+        <Link className="btn btn-dark" to="/signup">
           not a user?➡️
+          </Link>
         </button>
       </form>
     </div>
