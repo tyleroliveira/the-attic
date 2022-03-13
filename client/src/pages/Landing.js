@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from "../util/auth";
 // import { useEffect, useState } from "react";
 // import { Navigate } from "react-router-dom";
 // import { useAuth } from "../util/auth";
@@ -11,7 +12,7 @@ import { Link } from 'react-router-dom';
 // TODO: customize styles or import styles with favorite css approach
 
 export default function Landing() {
-
+  const { isLoggedIn, logout } = useAuth();
   return (
     <div>
       <h1>
@@ -21,6 +22,17 @@ export default function Landing() {
         LEAVE YOUR CODE HERE, 
         WE PROMISE ITS SAFE WITH US...
       </p>
+      {isLoggedIn ? (
+  <>
+    <Link to="/boxes" className="btn btn-dark">
+      My Boxes
+    </Link>
+    <button className="btn btn-dark" onClick={logout}>
+      Logout
+    </button>
+  </>
+) : (
+  <>
       <button>
       <Link className="btn btn-dark" to="/login">
         LOGIN
@@ -31,6 +43,10 @@ export default function Landing() {
         SIGNUP
       </Link>
       </button>
-    </div>
-  );
+  </>
+  )}
+  </div>
+)
 }
+
+
