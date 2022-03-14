@@ -1,17 +1,9 @@
 import React from "react";
-import { useQuery } from '@apollo/client';
 import NewBoxForm from "../components/NewBoxForm";
 import { useAuth } from "../util/auth";
-
 import BoxList from "../components/BoxList";
-
-import { GET_BOXES } from '../util/queries';
-
 export default function Home() {
-  const { logout } = useAuth();
-  const { loading, data } = useQuery(GET_BOXES);
-  const box = data?.boxes || [];
-  console.log(box)
+  const { logout } = useAuth();  
   return (
     <>
       <div>
@@ -28,7 +20,6 @@ export default function Home() {
         <NewBoxForm/>
         </div>
         <BoxList
-          box={box}
         />
       </div>
     </>
