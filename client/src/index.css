@@ -1,7 +1,5 @@
 * {
   box-sizing: border-box;
-  background-color: black;
-  color: white;
 }
 
 :root {
@@ -9,6 +7,4 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
-  font-size: 50px;
-}
+
