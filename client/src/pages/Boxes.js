@@ -23,12 +23,11 @@ export default function Home() {
           +NEW BOX
         </h2>
         <div>
-          <NewBoxForm/>
+        <NewBoxForm/>
         </div>
         <BoxList
-              boxes={boxes}
-
-            />
+          boxes={boxes}
+        />
       </div>
     </>
   );
