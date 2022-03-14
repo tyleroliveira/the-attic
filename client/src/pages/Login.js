@@ -51,7 +51,7 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <div style={{textAlign: "center", marginTop: "50px"}}>
       <h1>LOGIN..</h1>
       <hr />
       <form onSubmit={handleSubmit}>
