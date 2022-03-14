@@ -14,12 +14,12 @@ const styles = {
   },
   formControl: {
     display: "flex",
-    padding: "0.25em",
+    padding: "0.4em",
     justifyContent: "center",
   },
   formDiv: {
-    textAlign: "center",
     display: "block",
+    margin: "auto",
     width: "300px",
   },
   input: {
@@ -109,7 +109,7 @@ export default function Login() {
         </div>
         <button
           style={styles.btn}>
-        <Link className="btn btn-dark" to="/signup">
+          <Link className="btn btn-dark" to="/signup">
           not a user?➡️
           </Link>
         </button>
