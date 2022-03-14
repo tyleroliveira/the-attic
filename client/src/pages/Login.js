@@ -20,11 +20,15 @@ const styles = {
   formDiv: {
     textAlign: "center",
     display: "block",
+    width: "300px",
   },
   input: {
     backgroundColor: "white",
-    borderRadius: "4px",
+    borderRadius: "3px",
     display: "inline-block",
+  },
+  btn: {
+    width: "100%",
   }
 };
 
@@ -71,6 +75,7 @@ export default function Login() {
       onSubmit={handleSubmit}>
         <div style={styles.formControl}>
           <input
+            className="form-control"
             style={styles.input}
             disabled={loading}
             id="email"
@@ -83,6 +88,7 @@ export default function Login() {
         </div>
         <div style={styles.formControl}>
           <input
+            className="form-control"
             style={styles.input}
             disabled={loading}
             id="new-password"
@@ -94,11 +100,15 @@ export default function Login() {
           />
         </div>
         <div style={styles.formControl}>
-          <button className="btn btn-dark" disabled={loading} type="submit">
+          <button 
+            style={styles.btn}
+            className="btn btn-dark" 
+            disabled={loading} type="submit">
             {loading ? "Loading..." : "LOGIN"}
           </button>
         </div>
-        <button>
+        <button
+          style={styles.btn}>
         <Link className="btn btn-dark" to="/signup">
           not a user?➡️
           </Link>
