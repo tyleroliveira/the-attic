@@ -9,7 +9,9 @@ import { GET_BOXES } from '../util/queries';
 
 export default function Home() {
   const { logout } = useAuth();
-  const {boxes} = useQuery(GET_BOXES)
+  const { loading, data } = useQuery(GET_BOXES);
+  const box = data?.boxes || [];
+  console.log(box)
   return (
     <>
       <div>
@@ -26,7 +28,7 @@ export default function Home() {
         <NewBoxForm/>
         </div>
         <BoxList
-          boxes={boxes}
+          box={box}
         />
       </div>
     </>

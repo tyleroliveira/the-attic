@@ -20,7 +20,7 @@ const styles = {
   formDiv: {
     display: "block",
     margin: "auto",
-    width: "300px",
+    width: "350px",
   },
   input: {
     backgroundColor: "white",
@@ -107,12 +107,14 @@ export default function Login() {
             {loading ? "Loading..." : "LOGIN"}
           </button>
         </div>
-        <button
+        <div style={styles.formControl}>
+          <Link 
+          className="btn btn-dark" 
+          to="/signup"
           style={styles.btn}>
-          <Link className="btn btn-dark" to="/signup">
           not a user?➡️
           </Link>
-        </button>
+        </div>
       </form>
     </div>
   </div>

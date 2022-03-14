@@ -9,7 +9,7 @@ import useAuth  from '../util/auth';
 
 const NewBoxForm = () => {
     // Use state to set initial state to empty title string
-    const [boxTitle, setBoxTitle] = useState("");
+    const [title, setBoxTitle] = useState("");
 
     // handleInputChange for user to input title
     const [addBox, { error }] = useMutation(ADD_BOX, {
@@ -45,7 +45,7 @@ const NewBoxForm = () => {
     try {
       const { data } = await addBox({
         variables: {
-          boxTitle,
+          title,
         },
       });
 
@@ -60,7 +60,7 @@ const NewBoxForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'boxTitle' && value.length <= 280) {
+    if (name === 'title' && value.length <= 280) {
       setBoxTitle(value);
     }
   };
@@ -74,9 +74,9 @@ const NewBoxForm = () => {
       >
         <div className="col-12 col-lg-9">
           <textarea
-            name="boxTitle"
+            name="title"
             placeholder="your title here.."
-            value={boxTitle}
+            value={title}
             className="form-input w-100"
             style={{ lineHeight: '1.5', resize: 'vertical' }}
             onChange={handleChange}
