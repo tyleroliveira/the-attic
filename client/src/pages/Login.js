@@ -10,6 +10,7 @@ import { useAuth } from "../util/auth";
 const styles = {
   h1: {
     textAlign: "center",
+    paddingTop: "1.5em",
   },
   formControl: {
     display: "flex",
@@ -18,8 +19,12 @@ const styles = {
   },
   formDiv: {
     textAlign: "center",
-    backgroundColor: "white",
     display: "block",
+  },
+  input: {
+    backgroundColor: "white",
+    borderRadius: "4px",
+    display: "inline-block",
   }
 };
 
@@ -57,13 +62,16 @@ export default function Login() {
 
   return (
   <div>
-    <h1 style={styles.h1}>THE ATTIC</h1>
+    <h1 
+    style={styles.h1}
+    >THE ATTIC
+    </h1>
     <div style={styles.formDiv}>
-      <h2>LOGIN..</h2>
       <form 
       onSubmit={handleSubmit}>
         <div style={styles.formControl}>
           <input
+            style={styles.input}
             disabled={loading}
             id="email"
             type="email"
@@ -75,6 +83,7 @@ export default function Login() {
         </div>
         <div style={styles.formControl}>
           <input
+            style={styles.input}
             disabled={loading}
             id="new-password"
             type="password"
