@@ -8,6 +8,9 @@ import { useAuth } from "../util/auth";
 
 // TODO: customize styles or import styles with favorite css approach
 const styles = {
+  h1: {
+    color: "white",
+  },
   formControl: {
     display: "flex",
     padding: "0.25em",
@@ -51,14 +54,13 @@ export default function Login() {
   }
 
   return (
+  <div>
+    <h1 style={styles.h1}>THE ATTIC</h1>
     <div>
-      <h1>LOGIN..</h1>
+      <h2>LOGIN..</h2>
       <hr />
       <form onSubmit={handleSubmit}>
         <div style={styles.formControl}>
-          <label htmlFor="email" style={styles.label}>
-            Email
-          </label>
           <input
             disabled={loading}
             id="email"
@@ -70,9 +72,6 @@ export default function Login() {
           />
         </div>
         <div style={styles.formControl}>
-          <label htmlFor="new-password" style={styles.label}>
-            Password
-          </label>
           <input
             disabled={loading}
             id="new-password"
@@ -84,8 +83,8 @@ export default function Login() {
           />
         </div>
         <div style={styles.formControl}>
-          <button disabled={loading} type="submit">
-            {loading ? "Loading..." : "Submit"}
+          <button className="btn btn-dark" disabled={loading} type="submit">
+            {loading ? "Loading..." : "SUBMIT"}
           </button>
         </div>
         <button>
@@ -95,5 +94,6 @@ export default function Login() {
         </button>
       </form>
     </div>
+  </div>
   );
 }
