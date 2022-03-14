@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from "../util/auth";
-// import image from "../img/image.jpeg";
 // import { useEffect, useState } from "react";
 // import { Navigate } from "react-router-dom";
 // import { useAuth } from "../util/auth";
