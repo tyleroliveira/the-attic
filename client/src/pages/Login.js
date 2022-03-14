@@ -14,10 +14,14 @@ const styles = {
   formControl: {
     display: "flex",
     padding: "0.25em",
+    justifyContent: "center",
   },
-  label: {
-    flex: "0 1 6em",
-    paddingRight: "0.25em",
+  formDiv: {
+    textAlign: "center",
+    backgroundColor: "white",
+  },
+  textArea: {
+    radius: ".5",
   },
 };
 
@@ -56,10 +60,11 @@ export default function Login() {
   return (
   <div>
     <h1 style={styles.h1}>THE ATTIC</h1>
-    <div>
+    <div style={styles.formDiv}>
       <h2>LOGIN..</h2>
       <hr />
-      <form onSubmit={handleSubmit}>
+      <form 
+      onSubmit={handleSubmit}>
         <div style={styles.formControl}>
           <input
             disabled={loading}
@@ -84,7 +89,7 @@ export default function Login() {
         </div>
         <div style={styles.formControl}>
           <button className="btn btn-dark" disabled={loading} type="submit">
-            {loading ? "Loading..." : "SUBMIT"}
+            {loading ? "Loading..." : "LOGIN"}
           </button>
         </div>
         <button>
