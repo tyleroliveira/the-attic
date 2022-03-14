@@ -8,14 +8,28 @@ import { useAuth } from "../util/auth";
 
 // TODO: customize styles or import styles with favorite css approach
 const styles = {
+  h1: {
+    textAlign: "center",
+    paddingTop: "1.5em",
+  },
   formControl: {
     display: "flex",
-    padding: "0.25em",
+    padding: "0.4em",
+    justifyContent: "center",
   },
-  label: {
-    flex: "0 1 6em",
-    paddingRight: "0.25em",
+  formDiv: {
+    display: "block",
+    margin: "auto",
+    width: "350px",
   },
+  input: {
+    backgroundColor: "white",
+    borderRadius: "3px",
+    display: "inline-block",
+  },
+  btn: {
+    width: "100%",
+  }
 };
 
 const initialFormState = {
@@ -50,16 +64,17 @@ export default function SignUp() {
   }
   return (
     <div>
-      <h1>Sign Up</h1>
-      <hr />
+      <h1 
+    style={styles.h1}
+    >THE ATTIC
+    </h1>
+    <div style={styles.formDiv}>
       <form onSubmit={handleSubmit}>
         <div style={styles.formControl}>
         </div>
         <div style={styles.formControl}>
-          <label htmlFor="email" style={styles.label}>
-            Email
-          </label>
           <input
+            className="form-control"
             disabled={loading}
             id="email"
             type="email"
@@ -70,10 +85,8 @@ export default function SignUp() {
           />
         </div>
         <div style={styles.formControl}>
-          <label htmlFor="new-password" style={styles.label}>
-            Password
-          </label>
           <input
+            className="form-control"
             disabled={loading}
             id="new-password"
             type="password"
@@ -84,16 +97,24 @@ export default function SignUp() {
           />
         </div>
         <div style={styles.formControl}>
-          <button disabled={loading} type="submit">
+          <button 
+          className="btn btn-dark"
+          style={styles.btn}
+          disabled={loading} 
+          type="submit">
             {loading ? "Loading..." : "SIGNUP"}
           </button>
         </div>
-          <button type="submit">
-          <Link className="btn btn-dark" to="/login">
-            already a user?
+        <div style={styles.formControl}>
+          <Link 
+          className="btn btn-dark" 
+          to="/login"
+          style={styles.btn}>
+          already a user?➡️
           </Link>
-          </button>
+        </div>
       </form>
+    </div>
     </div>
   );
 }
