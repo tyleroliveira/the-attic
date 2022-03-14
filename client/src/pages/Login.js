@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, Navigate, Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { useAuth } from "../util/auth";
 
 // This signup form is intentionally minimalist to reduce effort required to
@@ -9,7 +9,7 @@ import { useAuth } from "../util/auth";
 // TODO: customize styles or import styles with favorite css approach
 const styles = {
   h1: {
-    color: "white",
+    textAlign: "center",
   },
   formControl: {
     display: "flex",
@@ -19,10 +19,8 @@ const styles = {
   formDiv: {
     textAlign: "center",
     backgroundColor: "white",
-  },
-  textArea: {
-    radius: ".5",
-  },
+    display: "block",
+  }
 };
 
 const initialFormState = {
@@ -33,7 +31,7 @@ const initialFormState = {
 export default function Login() {
   const { isLoggedIn, login, loading, error } = useAuth();
   const [formState, setFormState] = useState(initialFormState);
-  const location = useLocation();
+  
 
   useEffect(() => {
     if (error) {
@@ -62,7 +60,6 @@ export default function Login() {
     <h1 style={styles.h1}>THE ATTIC</h1>
     <div style={styles.formDiv}>
       <h2>LOGIN..</h2>
-      <hr />
       <form 
       onSubmit={handleSubmit}>
         <div style={styles.formControl}>
