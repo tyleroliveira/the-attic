@@ -1,7 +1,5 @@
 * {
   box-sizing: border-box;
-  background: black;
-  color: white;
 }
 
 :root {
@@ -9,12 +7,4 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.landing-bkg {
-  background-image: url(../src/img/image.jpeg);
-  min-height: 100%;
-  min-width: 1024px;
-  width: 1335px;
-  height: 2000px;
-  position: fixed;
-}
 

@@ -70,7 +70,7 @@ const resolvers = {
     addBox: async (parent, { title }, context) => {
       console.log(context);
       if (context.user) {
-        const box = new Box.create({ title });
+        const box = await Box.create({ title });
 
         await User.findByIdAndUpdate(context.user._id, { $push: { boxes: box } });
 
