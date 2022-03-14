@@ -14,12 +14,14 @@ const NewBoxForm = () => {
     // handleInputChange for user to input title
     const [addBox, { error }] = useMutation(ADD_BOX, {
         update(cache, { data: { addBox } }) {
+          console.log(addBox)
             try {
-                const { boxes } = cache.readQuery({ query: GET_BOXES });
+                const {me} = cache.readQuery({ query: GET_BOXES });
+
 
                 cache.writeQuery({
                     query: GET_BOXES,
-                    data: { boxes: [addBox, ...boxes] },
+                    data: { me:{boxes:[...me.boxes, addBox]}  },
                 });
             } catch (err) {
                 console.log(err);

@@ -65,12 +65,6 @@ export default function Login() {
   }
 
   return (
-<<<<<<< HEAD
-    <div>
-      <h1>LOGIN..</h1>
-      <hr />
-      <form onSubmit={handleSubmit}>
-=======
   <div>
     <h1 
     style={styles.h1}
@@ -79,7 +73,6 @@ export default function Login() {
     <div style={styles.formDiv}>
       <form 
       onSubmit={handleSubmit}>
->>>>>>> a93f634cbfc0f49a1eddd3e5297644b15e904ef9
         <div style={styles.formControl}>
           <input
             className="form-control"
