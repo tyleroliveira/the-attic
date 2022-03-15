@@ -32,10 +32,14 @@ export const ADD_BOX = gql`
 `;
 
 export const ADD_ITEM = gql`
-  mutation AddBox($boxId: ID!, $title: String!) {
-    addItem(BoxId: $boxId, title: $title) {
-      _id
-      title
+  mutation AddBox($boxId: ID!, $title: String!, $itemCode: String, $itemLink: String) {
+    addItem(BoxId: $boxId, title: $title, itemCode: $itemCode, itemLink: $itemLink) {
+      items {
+        _id
+        title
+        itemCode
+        itemLink
+      }
     }
   }
 `;
