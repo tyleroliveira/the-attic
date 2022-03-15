@@ -7,9 +7,9 @@ import { ADD_ITEM } from '../util/mutations';
 import {useAuth} from '../util/auth';
 
 const NewItemForm = ({ boxId }) => {
-  const [itemText, setItemText] = useState('');
-  const [itemCode, setItemCode] = useState('');
-  const [itemLink, setItemLink] = useState('');
+  const [itemTitle, setItemTitle] = useState("");
+  const [itemCode, setItemCode] = useState("");
+  const [itemLink, setItemLink] = useState("");
 
   const [addItem, { error }] = useMutation(ADD_ITEM);
 
@@ -19,30 +19,27 @@ const NewItemForm = ({ boxId }) => {
     try {
       const { data } = await addItem({
         variables: {
-          boxId,
-          itemText,
-          itemCode,
-          itemLink
+           itemTitle,
+           itemCode,
+           itemLink
         },
       });
 
-      setItemText('');
-      setItemCode('');
-      setItemLink('');
+       setItemTitle("");
+       setItemCode("");
+       setItemLink("");
     } catch (err) {
       console.error(err);
     }
   };
 
-  const handleChange = (event) => {
-    const { title, code, link, value } = event.target;
+  // const handleChange = (event) => {
+  //   const { title, code, link, value } = event.target;
 
-    if (title === 'itemText' && code === 'itemCode' && link === "itemLink" && value.length <= 280) {
-      setItemText(value);
-      setItemCode(value);
-      setItemLink(value);
-    }
-  };
+  //   if (title === 'itemText' && code === 'itemCode' && link === "itemLink" && value.length <= 280) {
+  //     setFormState({...formState, [title]: value});
+  //   }
+  // };
 
   return (
     <div>
@@ -54,12 +51,12 @@ const NewItemForm = ({ boxId }) => {
           >
             <div className="col-12 col-lg-9">
               <input
-                name="itemText"
+                name="itemTitle"
                 placeholder="Add your title..."
-                value={itemText}
+                value={itemTitle}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
+                onChange={(event) => setItemTitle(event.target.value)}
               ></input>
             </div>
             <div className="col-12 col-lg-9">
@@ -69,7 +66,7 @@ const NewItemForm = ({ boxId }) => {
                 value={itemCode}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
+                onChange={(event) => setItemCode(event.target.value)}
               ></input>
             </div>
             <div className="col-12 col-lg-9">
@@ -79,7 +76,7 @@ const NewItemForm = ({ boxId }) => {
                 value={itemLink}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
+                onChange={(event) => setItemLink(event.target.value)}
               ></input>
             </div>
 
