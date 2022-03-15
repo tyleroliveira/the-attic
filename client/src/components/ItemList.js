@@ -1,18 +1,21 @@
 import React from 'react';
+import { GET_ITEMS } from '../util/queries';
+import { useQuery } from '@apollo/client';
 
+const ItemList = () => {
+  const { loading, data, err } = useQuery(GET_ITEMS);
+  const items = data?.me.boxes.items;
 
-const ItemList = ({ items = [] }) => {
+  if (!items) {
+    return <h3>No items Yet</h3>;
+  }
 
-  // if (!items.length) {
-  //   return <h3>No items Yet</h3>;
-  // }
   return (
     <>
       <h3
         className="p-5 display-inline-block"
-        style={{ borderBottom: '1px dotted #1a1a1a' }}
       >
-        Items
+        ITEMS
       </h3>
       <div className="flex-row my-4">
         {items &&

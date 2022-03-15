@@ -31,7 +31,7 @@ export default function Landing() {
         </Link>
         <button className="btn btn-dark" onClick={logout}>
           Logout
-        </button>3
+        </button>
       </>
     ) : (
       <>
