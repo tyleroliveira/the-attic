@@ -21,8 +21,9 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    box: async (parent, { _id }) => {
-      return await Box.findById(_id).populate('boxes');
+    box: async (parent, { boxId }) => {
+      const box = await Box.findOne({_id: boxId});
+      return box;
     },
   },
   Mutation: {

@@ -6,7 +6,7 @@ const typeDefs = gql `
 
   type Query {
     me: User
-    box: Box
+    box(boxId: ID!): Box
   }
 
   type Box {
