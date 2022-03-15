@@ -5,7 +5,6 @@ import { useQuery } from '@apollo/client';
 const ItemList = () => {
   const { loading, data, err } = useQuery(GET_ITEMS);
   const items = data?.me.boxes.items;
-  console.log(items);
   
   if (!items) {
     return <h3>No items Yet</h3>;

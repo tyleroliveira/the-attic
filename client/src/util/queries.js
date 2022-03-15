@@ -25,7 +25,7 @@ export const GET_ITEMS = gql`
       boxes {
         items {
           _id
-          title
+          itemTitle
           itemCode
           itemLink
         }

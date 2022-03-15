@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
 
+import { GET_BOX } from '../util/queries';
 import { ADD_ITEM } from '../util/mutations';
 
 import {useAuth} from '../util/auth';
+import { useParams } from 'react-router-dom';
 
-const NewItemForm = ({ boxId }) => {
+const NewItemForm = () => {
+  const {loading, data, err} = useQuery(GET_BOX);
+  const boxId = data?.box._id;
+
   const [itemTitle, setItemTitle] = useState("");
   const [itemCode, setItemCode] = useState("");
   const [itemLink, setItemLink] = useState("");
@@ -19,6 +24,7 @@ const NewItemForm = ({ boxId }) => {
     try {
       const { data } = await addItem({
         variables: {
+           boxId,
            itemTitle,
            itemCode,
            itemLink
