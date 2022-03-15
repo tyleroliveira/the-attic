@@ -92,7 +92,6 @@ const resolvers = {
             new: true,
           }
         );
-        console.log(box);
         return box
       }
       throw new AuthenticationError('You need to be logged in!');
