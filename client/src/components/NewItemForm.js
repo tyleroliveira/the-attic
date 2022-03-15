@@ -13,6 +13,7 @@ const NewItemForm = () => {
   const {loading, data, err} = useQuery(GET_BOX, {
     variables: { boxId: userParam},
   });
+  
   const boxId = data?.box._id;
 
   const [itemTitle, setItemTitle] = useState("");
@@ -32,6 +33,9 @@ const NewItemForm = () => {
            itemCode,
            itemLink
         },
+        refetchQueries: [
+          GET_BOX,
+        ],
       });
 
        setItemTitle("");
@@ -41,14 +45,6 @@ const NewItemForm = () => {
       console.error(err);
     }
   };
-
-  // const handleChange = (event) => {
-  //   const { title, code, link, value } = event.target;
-
-  //   if (title === 'itemText' && code === 'itemCode' && link === "itemLink" && value.length <= 280) {
-  //     setFormState({...formState, [title]: value});
-  //   }
-  // };
 
   return (
     <div>
@@ -66,7 +62,7 @@ const NewItemForm = () => {
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={(event) => setItemTitle(event.target.value)}
-              ></input>
+              />
             </div>
             <div className="col-12 col-lg-9">
               <input
@@ -76,17 +72,17 @@ const NewItemForm = () => {
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={(event) => setItemCode(event.target.value)}
-              ></input>
+              />
             </div>
             <div className="col-12 col-lg-9">
-              <input
+              <textarea
                 name="itemLink"
                 placeholder="Add your link.."
                 value={itemLink}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={(event) => setItemLink(event.target.value)}
-              ></input>
+              />
             </div>
 
             <div className="col-12 col-lg-3">
