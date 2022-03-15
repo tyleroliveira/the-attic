@@ -9,7 +9,10 @@ import {useAuth} from '../util/auth';
 import { useParams } from 'react-router-dom';
 
 const NewItemForm = () => {
-  const {loading, data, err} = useQuery(GET_BOX);
+  const { boxId: userParam } = useParams();
+  const {loading, data, err} = useQuery(GET_BOX, {
+    variables: { boxId: userParam},
+  });
   const boxId = data?.box._id;
 
   const [itemTitle, setItemTitle] = useState("");

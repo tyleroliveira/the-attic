@@ -11,12 +11,17 @@ export const ME = gql`
 `;
 
 export const GET_BOX = gql`
-  query box {
-    box {
+  query Query($boxId: ID!) {
+    box(boxId: $boxId) {
       _id
       title
+      items {
+        itemTitle
+        itemCode
+        itemLink
+      }
     }
-}
+  }
 `;
 
 export const GET_ITEMS = gql`
