@@ -2,28 +2,36 @@ import React from "react";
 import { Link} from "react-router-dom"
 import { GET_BOXES } from '../util/queries';
 import { useQuery } from '@apollo/client';
+import "../index.css";
 
 const BoxList = () => {
   const { loading, data, err } = useQuery(GET_BOXES);
   const boxes = data?.me.boxes;
-  //console.log(boxes.title)
+  const styles = {
+    box: {
+      backgroundColor: "white",
+    },
+  };
   if (!boxes) {
     return <h3>No boxes Yet</h3>;
   }
   
   return (
-    <div>
+    <div  >
       {boxes &&
         boxes.map((box) => (
-          <div key={box._id} className="card mb-3">
-            <div className="card-body bg-light p-2">
-              <p>{box.title}</p>
+          <div key={box._id} className="font-link">
+            <div>
             </div>
-            <Link
-              className="btn btn-primary btn-block btn-squared"
+            <button
+              className="btn btn-lg btn-box"
               to={`/boxes/${box._id}`}
             >
-            </Link>
+              <div>
+              <p>contents:</p>
+              </div>
+              <p>{box.title}</p>
+            </button>
           </div>
         ))}
         </div>

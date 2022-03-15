@@ -6,5 +6,20 @@
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 }
+.font-link {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 50px;
+}
+.btn-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px auto;
+  width: 200px;
+  height: 200px;
+  max-width: 500px;
+  background-color: #ad8762;
+}
+
 
 
