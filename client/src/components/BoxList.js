@@ -7,6 +7,8 @@ import "../index.css";
 const BoxList = () => {
   const { loading, data, err } = useQuery(GET_BOXES);
   const boxes = data?.me.boxes;
+  const boxesEven = boxes?.filter((box, index) => index % 2 === 0);
+  const boxesOdd = boxes?.filter((box, index) => index % 2 !== 0);
   const styles = {
     box: {
       backgroundColor: "white",
@@ -18,8 +20,9 @@ const BoxList = () => {
   
   return (
     <div className="wrapper" >
-      {boxes &&
-        boxes.map((box) => (
+      <div>
+      {boxesEven &&
+        boxesEven.map((box) => (
           <div key={box._id} className="font-link">
             <div>
             </div>
@@ -35,6 +38,26 @@ const BoxList = () => {
             </button>
           </div>
         ))}
+        </div>
+        <div>
+        {boxesOdd &&
+        boxesOdd.map((box) => (
+          <div key={box._id} className="font-link">
+            <div>
+            </div>
+            <button>
+              <Link className="btn btn-lg btn-box"
+              to={`/boxes/${box._id}`}
+            >
+              <div>
+              <p>contents:</p>
+              </div>
+              <p>{box.title}</p>
+            </Link>
+            </button>
+          </div>
+        ))}
+        </div>
         </div>
     )
 }

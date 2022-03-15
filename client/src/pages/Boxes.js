@@ -41,15 +41,15 @@ export default function Home() {
         style={styles.h1}
         >YOUR ATTIC</h1>
         <hr />
-        <h2
-        style={styles.formDiv}
-        >  
+        <div className="btn-box" >
+        <h2>  
         +NEW BOX
         </h2>
         <div
         style={styles.formControl}
         >
         <NewBoxForm/>
+        </div>
         </div>
         <BoxList
         />
