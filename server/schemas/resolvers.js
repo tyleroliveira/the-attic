@@ -79,19 +79,21 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    addItem: async (parent, { boxId, title, itemCode, itemLink }, context) => {
+    addItem: async (parent, { boxId, itemTitle, itemCode, itemLink }, context) => {
       if (context.user) {
-        return Box.findOneAndUpdate(
-          { _id: boxId },
+        const box = await Box.findByIdAndUpdate(
+          { _id: boxId},
           {
-            $addToSet: {
-              items: { title, itemCode, itemLink },
+            $push: {
+              items: { itemTitle, itemCode, itemLink },
             },
           },
           {
             new: true,
           }
         );
+        console.log(box);
+        return box
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -126,12 +128,6 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    // updateBox: async (parent, { _id, title }) => {
-    //   return await Box.findByIdAndUpdate(_id, { $push: { title } }, { new: true });
-    // },
-    // updateItem: async (parent, { boxId, itemId, title, itemCode, itemLink }) => {
-    //   return await Box.findByIdAndUpdate(boxId, itemId { $push: { title, itemCode, itemLink  } }, { new: true });
-    // },
     updateBox: async (parent, {
       title,
     }, context) => {
@@ -156,7 +152,7 @@ const resolvers = {
       }
     },
     updateItem: async (parent, {
-      title,
+      itemTitle,
       itemCode,
       itemLink
     }, context) => {
@@ -167,7 +163,7 @@ const resolvers = {
           }, {
             $push: {
               item: {
-                title,
+                itemTitle,
                 itemCode,
                 itemLink,
               }

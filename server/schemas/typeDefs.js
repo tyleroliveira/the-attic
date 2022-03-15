@@ -17,7 +17,7 @@ const typeDefs = gql `
 
   type Item {
     _id: ID!
-    title: String!
+    itemTitle: String!
     itemCode: String
     itemLink: String
   }
@@ -26,10 +26,10 @@ const typeDefs = gql `
     createUser(email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addBox(title: String!): Box
-    addItem(BoxId: ID!, title: String!): Box
+    addItem(boxId: ID!, itemTitle: String!, itemCode: String, itemLink: String): Box
     removeBox(boxId: ID!): Box
     removeItem(boxId: ID!, itemId: ID!): Box
-    updateItem(_id: ID!, title: String!, itemCode: String, itemLink: String): Box
+    updateItem(_id: ID!, itemTitle: String!, itemCode: String, itemLink: String): Box
     updateBox(_id: ID!, title: String!): Box
   }
 
