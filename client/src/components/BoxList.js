@@ -17,20 +17,21 @@ const BoxList = () => {
   }
   
   return (
-    <div  >
+    <div className="wrapper" >
       {boxes &&
         boxes.map((box) => (
           <div key={box._id} className="font-link">
             <div>
             </div>
-            <button
-              className="btn btn-lg btn-box"
+            <button>
+              <Link className="btn btn-lg btn-box"
               to={`/boxes/${box._id}`}
             >
               <div>
               <p>contents:</p>
               </div>
               <p>{box.title}</p>
+            </Link>
             </button>
           </div>
         ))}
