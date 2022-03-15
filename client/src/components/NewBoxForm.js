@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 
 import { ADD_BOX } from '../util/mutations';
-import { GET_BOXES, ME } from "../util/queries"
+import { GET_BOXES } from "../util/queries"
 
 import useAuth  from '../util/auth';
 
@@ -12,33 +12,7 @@ const NewBoxForm = () => {
     const [title, setBoxTitle] = useState("");
 
     // handleInputChange for user to input title
-    const [addBox, { error }] = useMutation(ADD_BOX, {
-    //     update(cache, { data: { addBox } }) {
-    //       console.log(addBox)
-    //         try {
-    //             const {me} = cache.readQuery({ query: GET_BOXES });
-
-
-    //             cache.writeQuery({
-    //                 query: GET_BOXES,
-    //                 data: { me:{boxes:[...me.boxes, addBox]}  },
-    //             });
-    //         } catch (err) {
-    //             console.log(err);
-    //         }
-
-    //               // update me object's cache
-    //   const me = cache.readQuery({ query: ME })?.me;
-    //   if (!me) {
-    //     // no me query in the cache yet. abort update.
-    //     return;
-    //   }
-    //   cache.writeQuery({
-    //     query: ME,
-    //     data: { me: { ...me, boxes: [...me.boxes, addBox] } },
-    //   });
-    // },
-});
+    const [addBox, { error }] = useMutation(ADD_BOX);
 
 //handle form submit to add box to user's box page
   const handleFormSubmit = async (event) => {
@@ -49,9 +23,10 @@ const NewBoxForm = () => {
         variables: {
           title,
         },
+        refetchQueries: [
+          GET_BOXES,
+        ],
       });
-      //todo  remove this later
-      window.location.reload();
 
       //reset form data to initial state
       setBoxTitle('');
