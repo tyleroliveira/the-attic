@@ -19,23 +19,19 @@ const Items = () => {
 
   return (
     <main>
-          <Link to="/boxes" className="btn btn-dark">
+    <Link to="/boxes" className="btn btn-dark">
       YOUR ATTIC
     </Link>
-                  <button className="btn btn-dark" onClick={logout}>
+    <button 
+      className="btn btn-dark" 
+      onClick={logout}>
           LOGOUT
-        </button>
-        <h3
-        className="p-5 display-inline-block"
-      >
+    </button>
+    <h3
+        className="p-5 display-inline-block">
         JavaScript
-      </h3>
-
-
+    </h3>
             <NewItemForm />
-
-
- 
       <div className="col-12 col-md-8 mb-3">
           <ItemList
           />

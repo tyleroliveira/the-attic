@@ -5,13 +5,14 @@ import { useQuery } from '@apollo/client';
 const ItemList = () => {
   const { loading, data, err } = useQuery(GET_ITEMS);
   const items = data?.me.boxes.items;
-
+  console.log(items);
+  
   if (!items) {
     return <h3>No items Yet</h3>;
   }
 
   return (
-    <>
+    <div>
       <h3
         className="p-5 display-inline-block"
       >
@@ -27,7 +28,7 @@ const ItemList = () => {
             </div>
           ))}
       </div>
-    </>
+    </div>
   );
 };
 
