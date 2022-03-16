@@ -8,6 +8,13 @@ import { ADD_ITEM } from '../util/mutations';
 import {useAuth} from '../util/auth';
 import { useParams } from 'react-router-dom';
 
+const styles = {
+  input: {
+    backgroundColor: "white",
+    borderRadius: "3px",
+    display: "inline-block",
+  },
+}
 const NewItemForm = () => {
   const { boxId: userParam } = useParams();
   const {loading, data, err} = useQuery(GET_BOX, {
@@ -60,27 +67,27 @@ const NewItemForm = () => {
                 placeholder="Add your title..."
                 value={itemTitle}
                 className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                style={styles.input}
                 onChange={(event) => setItemTitle(event.target.value)}
               />
             </div>
             <div className="col-12 col-lg-9">
-              <input
+                <textarea
                 name="itemCode"
                 placeholder="Add your code.."
                 value={itemCode}
                 className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                style={styles.input}
                 onChange={(event) => setItemCode(event.target.value)}
               />
             </div>
             <div className="col-12 col-lg-9">
-              <textarea
+              <input
                 name="itemLink"
                 placeholder="Add your link.."
                 value={itemLink}
                 className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                style={styles.input}
                 onChange={(event) => setItemLink(event.target.value)}
               />
             </div>

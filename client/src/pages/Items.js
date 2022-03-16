@@ -1,21 +1,23 @@
 import React from 'react';
 
-// import { useParams } from 'react-router-dom';
-// import { useQuery } from '@apollo/client';
-
 import ItemList from '../components/ItemList';
 import NewItemForm from '../components/NewItemForm';
 import { useAuth } from "../util/auth";
 import { Link } from 'react-router-dom';
 
-// import { QUERY_ITEMS } from '../utils/queries';
+const styles = {
+  formDiv: {
+    display: "block",
+    margin: "auto",
+    padding: "20px",
+    width: "350px",
+    backgroundColor: "black",
+    color: "white",
+  },
+}
 
 const Items = () => {
-    // const {loading, data} = useQuery(QUERY_ITEMS);
-    // const items = data?.items || [];
     const { logout } = useAuth();
-
-
 
   return (
     <main>
@@ -27,14 +29,12 @@ const Items = () => {
       onClick={logout}>
           LOGOUT
     </button>
-    <h3
-        className="p-5 display-inline-block">
-        JavaScript
-    </h3>
-            <NewItemForm />
+    <div
+    style={styles.formDiv}>
+      <NewItemForm />
+    </div>
       <div className="col-12 col-md-8 mb-3">
-          <ItemList
-          />
+      <ItemList />
       </div>
   </main>
   )}
