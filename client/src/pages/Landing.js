@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from "../util/auth";
+import background from "../img/the-attic.png";
 // import { useEffect, useState } from "react";
 // import { Navigate } from "react-router-dom";
 // import { useAuth } from "../util/auth";
@@ -14,8 +15,9 @@ import { useAuth } from "../util/auth";
 export default function Landing() {
   const { isLoggedIn, logout } = useAuth();
   return (
-    <div className="landing-bkg">
-        <div style={{textAlign: "center", marginTop: "50px"}}>
+        <div style={{backgroundImage: `url(${background})`,backgroundRepeat: 'no-repeat',height:"920px",width:"1849px", textAlign: "center", margin: "auto"}}>
+          <div style={{height:"200px",width:"1849px",}}>
+          </div>
           <h1 style={{fontSize: "65px"}}>
             THE ATTIC
           </h1>
@@ -47,7 +49,6 @@ export default function Landing() {
       </>
       )}
       </div>
-  </div>
 )
 }
 
