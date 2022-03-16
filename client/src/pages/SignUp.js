@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useAuth } from "../util/auth";
 
-// This signup form is intentionally minimalist to reduce effort required to
-// customize it to your app's needs. See the excellent best practices guide for
-// sign informs on web.dev https://web.dev/sign-in-form-best-practices/
-
-// TODO: customize styles or import styles with favorite css approach
 const styles = {
   h1: {
+    fontSize: "70px", 
     textAlign: "center",
-    paddingTop: "1.5em",
+    color: "white",
+    position: "absolute",
+    top: "30%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
   },
   formControl: {
     display: "flex",
@@ -18,8 +18,15 @@ const styles = {
     justifyContent: "center",
   },
   formDiv: {
-    display: "block",
-    margin: "auto",
+    textAlign: "center", 
+    margin: "auto", 
+    padding: "25px", 
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "white", 
+    borderRadius: "10px",
     width: "350px",
   },
   input: {
@@ -68,10 +75,22 @@ export default function SignUp() {
     style={styles.h1}
     >THE ATTIC
     </h1>
+    <div className="area" >
+            <ul className="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
     <div style={styles.formDiv}>
       <form onSubmit={handleSubmit}>
-        <div style={styles.formControl}>
-        </div>
         <div style={styles.formControl}>
           <input
             className="form-control"
