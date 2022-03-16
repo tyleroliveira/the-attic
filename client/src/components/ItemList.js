@@ -45,20 +45,16 @@ const ItemList = () => {
   }
 
   return (
-    <div>
+    <>
       <h2
         style={styles.h2}>
         {data?.box.title}
       </h2>
-      <div 
-      className="flex-row my-4"
-      style={styles.singleItem}>
         {items &&
           items.map((item) => (
             <Card 
-              key={item._id} 
-              className="col-12 mb-3 pb-3">
-              <Card.Body>
+              style={styles.singleItem}
+              key={item._id}>
                 <Card.Header as="h5">{item.itemTitle}</Card.Header>
                 <Card.Body>
                 <pre>
@@ -79,11 +75,9 @@ const ItemList = () => {
                 />
                 <span className="visually-hidden">Loading...</span></>:<><span className="visually-hidden">Delete Item</span>delete item</>}</button>
                 </Card.Body>
-              </Card.Body>
             </Card>
           ))}
-      </div>
-    </div>
+      </>
   );
 };
 
