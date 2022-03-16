@@ -3,21 +3,15 @@ import { Link} from "react-router-dom"
 import { GET_BOXES } from '../util/queries';
 import { useQuery } from '@apollo/client';
 import "../index.css";
-
 const BoxList = () => {
   const { loading, data, err } = useQuery(GET_BOXES);
   const boxes = data?.me.boxes;
-  const boxesEven = boxes?.filter((box, index) => index % 2 === 0);
-  const boxesOdd = boxes?.filter((box, index) => index % 2 !== 0);
-  const styles = {
-    box: {
-      backgroundColor: "white",
-    },
-  };
+  const boxesReversed = [].concat(boxes).reverse();
+  const boxesEven = boxesReversed?.filter((box, index) => index % 2 === 0);
+  const boxesOdd = boxesReversed?.filter((box, index) => index % 2 !== 0);
   if (!boxes) {
     return <h3>No boxes Yet</h3>;
   }
-  
   return (
     <div className="wrapper" >
       <div>
@@ -61,5 +55,4 @@ const BoxList = () => {
         </div>
     )
 }
-
 export default BoxList;
