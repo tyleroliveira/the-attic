@@ -14,9 +14,13 @@ const styles = {
     padding: "10px",
   },
   singleItem: {
-    backgroundColor: "white",
+    marginBottom: "10px",
     borderRadius: "15px",
-    margin: "auto"
+  },
+  codeBox: {
+    backgroundColor: "#f6F6F6",
+    padding: "12px",
+    borderRadius: "5px",
   }
 }
 
@@ -55,13 +59,15 @@ const ItemList = () => {
             <Card 
               style={styles.singleItem}
               key={item._id}>
-                <Card.Header as="h5">{item.itemTitle}</Card.Header>
+                <Card.Header 
+                as="h5">{item.itemTitle}</Card.Header>
                 <Card.Body>
-                <pre>
+                <pre
+                style={styles.codeBox}>
                 <code>{item.itemCode}</code>
                 </pre>
                 <Card.Body>
-                <Card.Link href={item.itemLink} className='card-body'>{item.itemLink}</Card.Link>
+                <Card.Link href={item.itemLink}>{item.itemLink}</Card.Link>
                 </Card.Body>
                 <button
                 onClick={() => handleDeleteItem(item._id)}

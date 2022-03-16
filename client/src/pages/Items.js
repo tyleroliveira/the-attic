@@ -11,10 +11,14 @@ const styles = {
     margin: "auto",
     padding: "20px",
     width: "350px",
-    backgroundColor: "black",
-    color: "white",
+    backgroundColor: "#F6F6F6",
+    color: "black",
     borderRadius: "15px",
   },
+  itemsList: {
+    margin: "auto",
+    width: "66.66666667%",
+  }
 }
 
 const Items = () => {
@@ -34,7 +38,8 @@ const Items = () => {
     style={styles.formDiv}>
       <NewItemForm />
     </div>
-      <div className="col-12 col-md-8 mb-3">
+      <div
+      style={styles.itemsList}>
       <ItemList />
       </div>
   </main>
