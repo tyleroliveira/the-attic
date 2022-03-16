@@ -5,6 +5,12 @@ import { useMutation } from '@apollo/client';
 import { ADD_BOX } from '../util/mutations';
 import { GET_BOXES } from "../util/queries"
 
+const styles ={
+  form: { 
+    textAlign: "center",
+    padding: "15px",
+  }
+}
 const NewBoxForm = () => {
     // Use state to set initial state to empty title string
     const [title, setBoxTitle] = useState("");
@@ -43,6 +49,10 @@ const NewBoxForm = () => {
   };
 
     return (
+      <div 
+      className="btn-box"
+      style={styles.form}>
+        <h3>NEW BOX</h3>
         <form
         onSubmit={handleFormSubmit}
         >
@@ -52,22 +62,23 @@ const NewBoxForm = () => {
             placeholder="your title here.."
             value={title}
             className="form-input w-100"
-            style={{ lineHeight: '2.0'}}
+            style={{ lineHeight: '2.5'}}
             onChange={handleChange}
           />
         </div>
-
-        <div className="col-12 col-lg-3">
-          <button className="btn btn-dark" type="submit">
+          <button 
+          style={{margin: "10px"}}
+          className="btn btn-dark" 
+          type="submit">
             +
           </button>
-        </div>
         {error && (
           <div className="col-12 my-3 bg-danger text-white p-3">
             {error.message}
           </div>
         )}
       </form>
+      </div>
     )
 }
 

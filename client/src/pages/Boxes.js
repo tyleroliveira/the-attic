@@ -47,12 +47,8 @@ export default function Home() {
         style={styles.h1}
         >YOUR ATTIC</h1>
         <div
-        className="btn-box"
         style={styles.formControl}
         >
-          <h2>  
-          +NEW BOX
-          </h2>
         <NewBoxForm/>
         </div>
         <BoxList
