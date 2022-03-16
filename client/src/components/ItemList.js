@@ -62,13 +62,17 @@ const ItemList = () => {
                 <Card.Header 
                 as="h5">{item.itemTitle}</Card.Header>
                 <Card.Body>
+                {!item.itemCode ? "" : 
                 <pre
                 style={styles.codeBox}>
                 <code>{item.itemCode}</code>
                 </pre>
+                }
+                {!item.itemLink ? "" :
                 <Card.Body>
                 <Card.Link href={item.itemLink}>{item.itemLink}</Card.Link>
                 </Card.Body>
+                }
                 <button
                 onClick={() => handleDeleteItem(item._id)}
                 className='btn btn-dark'
