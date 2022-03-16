@@ -6,36 +6,33 @@
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 }
+.wrapper {
+  margin: 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
 .font-link {
   font-family: 'Permanent Marker', cursive;
-  font-size: 50px;
 }
 .btn-box {
   display: block;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin: 10px auto;
-  width: 200px;
+  width: 300px;
   height: 200px;
-  max-width: 500px;
   background-color: #ad8762;
 }
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
 
-.area{
+/* background animations styling */
+.area {
   background: black;  
   background: -webkit-linear-gradient(to left, #adb5bd, #e9ecef);  
   width: 100%;
   height:100vh;
-  
- 
 }
 
-.circles{
+.circles {
   position: absolute;
   top: 0;
   left: 0;
@@ -50,10 +47,9 @@
   list-style: none;
   width: 20px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.7);
   animation: animate 25s linear infinite;
   bottom: -150px;
-  
 }
 
 .circles li:nth-child(1){
