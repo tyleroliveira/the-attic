@@ -43,6 +43,8 @@ const ItemList = () => {
   }
 
   const items = data?.box.items;
+  const itemsReversed = [].concat(items).reverse();
+
 
   if (!items) {
     return <h3>No items Yet</h3>;
@@ -54,8 +56,8 @@ const ItemList = () => {
         style={styles.h2}>
         {data?.box.title}
       </h2>
-        {items &&
-          items.map((item) => (
+        {itemsReversed &&
+          itemsReversed.map((item) => (
             <Card 
               style={styles.singleItem}
               key={item._id}>
