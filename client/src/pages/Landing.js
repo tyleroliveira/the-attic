@@ -52,7 +52,7 @@ export default function Landing() {
     </div >
           <div style={styles.div}>
           <p style={{fontSize: "20px", lineHeight: "1.3", fontWeight: "bold"}}>
-            A PLACE TO LEAVE THE CODE YOU CAN'T FORGET          
+            A PLACE TO KEEP THE CODE YOU CAN'T FORGET          
           </p>
           {isLoggedIn ? (
       <>
