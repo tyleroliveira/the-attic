@@ -20,7 +20,7 @@ function App() {
             <Route path="/boxes" element={<RequireAuth><Boxes /></RequireAuth>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/boxes/:boxId" element={<Items />} />
+            <Route path="/boxes/:boxId" element={<RequireAuth><Items /></RequireAuth>} />
           </Routes>
         </AuthProvider>
       </Router>
