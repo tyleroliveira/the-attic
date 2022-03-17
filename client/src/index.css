@@ -29,7 +29,6 @@
 /* background animations styling */
 .area {
   background: black;  
-  background: -webkit-linear-gradient(to left, #adb5bd, #e9ecef);  
   width: 100%;
   height:100vh;
 }
