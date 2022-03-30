@@ -2,6 +2,10 @@ import React from "react";
 import { Link} from "react-router-dom"
 import { GET_BOXES } from '../util/queries';
 import { useQuery } from '@apollo/client';
+import Spinner from "react-bootstrap/Spinner";
+import { useParams } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { REMOVE_BOX } from '../util/mutations';
 import "../index.css";
 
 const styles = {
@@ -15,6 +19,17 @@ const BoxList = () => {
   const { loading, data, err } = useQuery(GET_BOXES);
   const boxes = data?.me.boxes;
   const boxesReversed = [].concat(boxes).reverse();
+
+  const [removeBox, removeBoxState] = useMutation(REMOVE_BOX);
+
+  const handleDeleteBox = (boxId) => {
+    removeBox({
+      variables: {
+        boxId
+      },
+      refetchQueries: [GET_BOXES]
+    });
+  }
 
   if (!boxes) {
     return <h3>No boxes Yet</h3>;
@@ -35,7 +50,20 @@ const BoxList = () => {
               <div style={styles.singleBox}>
                 {box.title}
               </div>
-            </Link>
+                </Link>
+              <div>
+                <button
+                onClick={() => handleDeleteBox(box._id)}
+                className='btn btn-dark'
+                disabled={removeBoxState.loading}>{removeBoxState.loading?<> <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                  />
+                <span className="visually-hidden">Loading...</span></>:<><span className="visually-hidden">Delete Box</span>delete box</>}</button>
+              </div>
           </div>
         ))}
       </div>
